@@ -501,22 +501,25 @@ body::after {
     margin-bottom: 20px;
 }
 .overall-budget-card {
-    background:linear-gradient(135deg, rgba(151, 136, 201, 0.5), rgba(202, 102, 130, 0.5));backdrop-filter: blur(22px);-webkit-backdrop-filter: blur(22px);border: 1px solid rgba(217, 130, 154, 0.35);;
+    background:linear-gradient(135deg, rgba(151, 136, 201, 0.5), rgba(202, 102, 130, 0.5));backdrop-filter: blur(22px);-webkit-backdrop-filter: blur(22px);border: 1px solid rgba(217, 130, 154, 0.35);
     border-radius: 20px; padding: 24px; box-shadow: 0 20px 45px rgba(41, 34, 48, 0.35); margin-bottom: 28px;
+}
+.overall-budget-card .small-label {
+    color: var(--plum);
 }
 .exceed-banner i {
     width: 17px;height: 17px; color: var(--rose); flex-shrink: 0;
 }
 
 .exceed-banner strong {
-    font-size: 13px;  color: var(--plum);
+    font-size: 13px;  color:var(--plum);
 }
 
 .exceed-banner p {  display: none;
 }
 
 .overall-amount {
-    font-family: 'DM Sans', sans-serif; font-size: 34px; font-weight: 700; color: var(--plum); margin-top: 6px;
+    font-family: 'DM Sans', sans-serif; font-size: 34px; font-weight: 700; color:var(--plum); margin-top: 6px;
 }
 
 .overall-sub {
