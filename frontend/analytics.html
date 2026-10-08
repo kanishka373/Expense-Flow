@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | ExpenseFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <button type="button" class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon">
+                <i data-lucide="wallet"></i>
+            </div>
+            <span>ExpenseFlow</span>
+        </div>
+
+        <div class="sidebar-links">
+            <a href="dashboard.html" class="nav-link">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="add-transactions.html" class="nav-link">
+                <i data-lucide="plus-circle"></i>
+                <span>Add Transaction</span>
+            </a>
+            <a href="transactions.html" class="nav-link">
+                <i data-lucide="receipt"></i>
+                <span>Transactions</span>
+            </a>
+            <a href="budgets.html" class="nav-link">
+                <i data-lucide="pie-chart"></i>
+                <span>Budgets</span>
+            </a>
+            <a href="analytics.html" class="nav-link active">
+                <i data-lucide="bar-chart-3"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="settings.html" class="nav-link">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="greeting">
+                <span class="small-label">INSIGHTS</span>
+                <h1>Analytics.</h1>
+            </div>
+        </header>
+      <section class="insight-row">
+        <div class="insight-card">
+            <span class="small-label">HIGHEST CATEGORY</span>
+            <h2 class="insignt-value " id="highestCategory">-</h2>
+        </div>
+      </section>
+   
+        <section class="analytics-grid">
+
+            <div class="chart-card">
+                <h2>Spending by category</h2>
+                <div class="chart-wrap">
+                    <canvas id="categoryChart"></canvas>
+                </div>
+                <p class="chart-empty-text" id="categoryEmptyText" style="display: none;">No expenses yet.</p>
+            </div>
+
+            <div class="chart-card">
+                <h2>Income vs Expense</h2>
+                <div class="chart-wrap">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="chart-card full-width">
+            <h2>Category breakdown</h2>
+            <div class="breakdown-list" id="breakdownList">
+                <p class="loading-text">Loading...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/toast.js"></script>
+    <script src="js/analytics.js"></script>
+</body>
+</html>

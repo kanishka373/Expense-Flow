@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | ExpenseFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <button type="button" class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon">
+                <i data-lucide="wallet"></i>
+            </div>
+            <span>ExpenseFlow</span>
+        </div>
+
+        <div class="sidebar-links">
+            <a href="dashboard.html" class="nav-link">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="add-transactions.html" class="nav-link">
+                <i data-lucide="plus-circle"></i>
+                <span>Add Transaction</span>
+            </a>
+            <a href="transactions.html" class="nav-link">
+                <i data-lucide="receipt"></i>
+                <span>Transactions</span>
+            </a>
+            <a href="budgets.html" class="nav-link">
+                <i data-lucide="pie-chart"></i>
+                <span>Budgets</span>
+            </a>
+            <a href="analytics.html" class="nav-link">
+                <i data-lucide="bar-chart-3"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="settings.html" class="nav-link active">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="greeting">
+                <span class="small-label">YOUR ACCOUNT</span>
+                <h1>Settings.</h1>
+            </div>
+        </header>
+
+        <section class="settings-card">
+            <div class="settings-avatar" id="settingsAvatar">K</div>
+            <div class="settings-user-info">
+                <h2 id="settingsName">Loading...</h2>
+                <p id="settingsEmail"></p>
+            </div>
+        </section>
+
+        <section class="settings-card">
+            <h2 class="settings-section-title">Account details</h2>
+
+            <div class="input-group">
+                <label for="settingsNameInput">Full name</label>
+                <div class="input-box">
+                    <i data-lucide="user-round"></i>
+                    <input type="text" id="settingsNameInput">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="settingsEmailInput">Email address</label>
+                <div class="input-box">
+                    <i data-lucide="mail"></i>
+                    <input type="email" id="settingsEmailInput" disabled>
+                </div>
+            </div>
+
+            <button class="primary-btn" id="saveProfileBtn" style="max-width: 200px;">
+                <span>Save changes</span>
+                <i data-lucide="check"></i>
+            </button> 
+        </section>
+                <section class="settings-card">
+            <h2 class="settings-section-title">Change password</h2>
+
+            <div class="input-group">
+                <label for="currentPasswordInput">Current password</label>
+                <div class="input-box">
+                    <i data-lucide="lock"></i>
+                    <input type="password" id="currentPasswordInput">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="newPasswordInput">New password</label>
+                <div class="input-box">
+                    <i data-lucide="lock"></i>
+                    <input type="password" id="newPasswordInput" placeholder="Minimum 6 characters">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="confirmPasswordInput">Confirm new password</label>
+                <div class="input-box">
+                    <i data-lucide="lock"></i>
+                    <input type="password" id="confirmPasswordInput">
+                </div>
+            </div>
+
+            <button class="primary-btn" id="updatePasswordBtn" style="max-width: 220px;">
+                <span>Update password</span>
+                <i data-lucide="check"></i>
+            </button>
+        </section>
+                <section class="settings-card">
+            <h2 class="settings-section-title">Export your data</h2>
+            <p class="danger-text">Download all your transactions as a CSV file.</p>
+            <button class="primary-btn" id="exportCsvBtn" style="max-width: 200px;">
+                <span>Export CSV</span>
+                <i data-lucide="download"></i>
+            </button>
+        </section>
+                <section class="settings-card danger-card">
+            <h2 class="settings-section-title">Danger zone</h2>
+            <p class="danger-text">Permanently deletes every transaction and budget. This cannot be undone.</p>
+            <button class="danger-btn" id="clearDataBtn">
+                <i data-lucide="trash-2"></i>
+                <span>Clear transactions & budgets</span>
+            </button>
+            <button class="danger-btn" id="settingsLogoutBtn" style="margin-top: 10px;">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+        </section>
+    </main>
+
+    <script src="js/toast.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

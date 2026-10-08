@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <main class="auth-page">
+        <section class="auth-card" id="authCard">
+
+            <div class="visual-panel">
+                <div class="visual-glow glow-one"></div>
+                <div class="visual-glow glow-two"></div>
+
+                <div class="visual-content">
+                    <div class="brand-mark">
+                        <div class="brand-icon"><i data-lucide="wallet"></i></div>
+                        <span>ExpenseFlow</span>
+                    </div>
+
+                    <div class="visual-text">
+                        <span class="eyebrow">SMARTER MONEY HABITS</span>
+                        <h1>Take control of <span>every rupee.</span></h1>
+                        <p>A simple and elegant space to understand, organize and manage your everyday finances.</p>
+                    </div>
+
+                    <div class="floating-wallet">
+                        <div class="wallet-top">
+                            <span>MY WALLET</span>
+                            <i data-lucide="more-horizontal"></i>
+                        </div>
+                        <div class="wallet-shape">
+                            <div class="wallet-chip"><i data-lucide="credit-card"></i></div>
+                            <div class="wallet-lines"><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <div class="floating-orb orb-one"></div>
+                    <div class="floating-orb orb-two"></div>
+                </div>
+            </div>
+
+            <div class="form-panel">
+                <div class="form-wrapper">
+
+                    <!-- LOGIN -->
+                    <div class="auth-form login-form">
+                        <div class="mobile-brand">
+                            <div class="brand-icon"><i data-lucide="wallet"></i></div>
+                            <span>ExpenseFlow</span>
+                        </div>
+
+                        <div class="form-heading">
+                            <span class="small-label">WELCOME BACK</span>
+                            <h2>Sign in to your <span>account.</span></h2>
+                            <p>Enter your details to continue managing your expenses.</p>
+                        </div>
+
+                        <form id="loginForm">
+                            <div class="input-group">
+                                <label for="loginEmail">Email address</label>
+                                <div class="input-box">
+                                    <i data-lucide="mail"></i>
+                                    <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="label-row">
+                                    <label for="loginPassword">Password</label>
+                                    <button type="button" class="forgot-btn" id="forgotPassword">Forgot password?</button>
+                                </div>
+                                <div class="input-box">
+                                    <i data-lucide="lock-keyhole"></i>
+                                    <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required>
+                                    <button type="button" class="password-toggle" data-target="loginPassword" aria-label="Show password">
+                                        <i data-lucide="eye" class="eye-open"></i>
+                                        <i data-lucide="eye-off" class="eye-closed" style="display: none;"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="primary-btn">
+                                <span>Sign in</span>
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+                        </form>
+
+                        <div class="form-switch">
+                            <span>Don't have an account?</span>
+                            <button type="button" id="showSignup">Create one</button>
+                        </div>
+                    </div>
+
+                    <!-- SIGNUP -->
+                    <div class="auth-form signup-form">
+                        <div class="mobile-brand">
+                            <div class="brand-icon"><i data-lucide="wallet"></i></div>
+                            <span>ExpenseFlow</span>
+                        </div>
+
+                        <div class="form-heading">
+                            <span class="small-label">GET STARTED</span>
+                            <h2>Create your <span>account.</span></h2>
+                            <p>Start building better money habits today.</p>
+                        </div>
+
+                        <form id="signupForm">
+                            <div class="input-group">
+                                <label for="signupName">Full name</label>
+                                <div class="input-box">
+                                    <i data-lucide="user-round"></i>
+                                    <input type="text" id="signupName" placeholder="Your name" autocomplete="name" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="signupEmail">Email address</label>
+                                <div class="input-box">
+                                    <i data-lucide="mail"></i>
+                                    <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="signupPassword">Password</label>
+                                <div class="input-box">
+                                    <i data-lucide="lock-keyhole"></i>
+                                    <input type="password" id="signupPassword" placeholder="Create a password" autocomplete="new-password" required>
+                                    <button type="button" class="password-toggle" data-target="signupPassword" aria-label="Show password">
+                                        <i data-lucide="eye" class="eye-open"></i>
+                                        <i data-lucide="eye-off" class="eye-closed" style="display: none;"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="primary-btn">
+                                <span>Create account</span>
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+                        </form>
+
+                        <div class="form-switch">
+                            <span>Already have an account?</span>
+                            <button type="button" id="showLogin">Sign in</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="js/toast.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

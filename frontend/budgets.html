@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgets | ExpenseFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <button type="button" class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon">
+                <i data-lucide="wallet"></i>
+            </div>
+            <span>ExpenseFlow</span>
+        </div>
+
+        <div class="sidebar-links">
+            <a href="dashboard.html" class="nav-link">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="add-transactions.html" class="nav-link">
+                <i data-lucide="plus-circle"></i>
+                <span>Add Transaction</span>
+            </a>
+            <a href="transactions.html" class="nav-link">
+                <i data-lucide="receipt"></i>
+                <span>Transactions</span>
+            </a>
+            <a href="budgets.html" class="nav-link active">
+                <i data-lucide="pie-chart"></i>
+                <span>Budgets</span>
+            </a>
+            <a href="analytics.html" class="nav-link">
+                <i data-lucide="bar-chart-3"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="settings.html" class="nav-link">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="greeting">
+                <span class="small-label">SPENDING LIMITS</span>
+                <h1>Budgets.</h1>
+            </div>
+        </header>
+
+        <div class="month-nav">
+    <button type="button" id="prevMonth" class="month-nav-btn">
+        <i data-lucide="chevron-left"></i>
+    </button>
+    <input type="month" id="monthPicker" class="month-picker-input">
+    <button type="button" id="nextMonth" class="month-nav-btn">
+        <i data-lucide="chevron-right"></i>
+    </button>
+</div>
+
+        <div id="exceedBanner"></div>
+
+        <section class="overall-budget-card" id="overallBudgetCard">
+            <span class="small-label">MONTHLY BUDGET</span>
+            <h2 class="overall-amount" id="overallAmount">Not set</h2>
+            <p class="overall-sub" id="overallSub"></p>
+
+            <div class="budget-bar-track">
+                <div class="budget-bar-fill" id="overallBarFill" style="width: 0%;"></div>
+            </div>
+            <p class="overall-percent" id="overallPercent"></p>
+
+            <label class="overall-label">Overall spending limit</label>
+            <div class="overall-set-row">
+                <input type="number" id="overallInput" placeholder="e.g. 10000">
+                <button id="saveOverallBtn" class="save-budget-btn">Save budget</button>
+                <button id="removeOverallBtn" class="remove-budget-btn">Remove</button>
+            </div>
+        </section>
+
+        <section class="transactions-section">
+            <div class="section-header">
+                <h2>Category budgets</h2>
+            </div>
+            <p class="budget-hint">Optional limits. Every expense still counts toward the monthly budget.</p>
+
+            <div class="budget-grid-wrapper" id="budgetGrid"></div>
+        </section>
+
+    </main>
+
+    <script src="js/toast.js"></script>
+    <script src="js/budgets.js"></script>
+</body>
+</html>
