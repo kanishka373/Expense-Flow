@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+:root {
+    --cream: #fbf7f1;--cream-dark: #f4ede4;--lavender: #cdb8ee;--lavender-light: #e7dcf7;--purple: #6c4ab6;--purple-dark: #4f328f;
+    --pink: #e8afc0;  --rose: #d9829a;  --plum: #292230;  --muted: #817987;  --white: #ffffff;    --border: rgba(108, 74, 182, 0.12);
+ --shadow:    0 30px 80px rgba(69, 47, 91, 0.14),    0 12px 30px rgba(69, 47, 91, 0.08);
+}
+* {  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;font-family: "DM Sans", sans-serif;color: var(--plum);background: var(--cream);
+}
+.auth-page {
+    position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 30px;   overflow: hidden;
+    background:  radial-gradient(circle at 8% 12%,  rgba(205, 184, 238, 0.48),  transparent 28%),
+        radial-gradient( circle at 92% 85%, rgba(232, 175, 192, 0.38), transparent 30%),  var(--cream);
+}
+.auth-page::before,
+.auth-page::after {
+    content: "";  position: absolute;  border-radius: 50%;filter: blur(60px);  pointer-events: none; z-index: 0;
+}
+.auth-page::before {
+    width: 360px;  height: 360px;top: -60px;right: 6%;background: rgba(205, 184, 238, 0.55);
+}
+
+.auth-page::after {
+    width: 320px;height: 320px; bottom: -60px;left: 4%; background: rgba(232, 175, 192, 0.5);
+}
+.bg-blob {
+    position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.55; pointer-events: none; z-index: 0; animation: blobDrift 14s ease-in-out infinite;
+}
+.blob-1 { width: 380px; height: 380px; top: -90px; left: -70px; background: var(--lavender); }
+.blob-2 { width: 340px; height: 340px; bottom: -100px; right: -50px; background: var(--pink); animation-delay: -5s; }
+.blob-3 { width: 220px; height: 220px; top: 42%; left: 50%; background: var(--lavender-light); animation-delay: -9s; }
+
+.auth-card {
+    position: relative; z-index: 2; width: min(860px, 100%); min-height: 590px; display: grid;
+    grid-template-columns: 48% 52%;
+    overflow: hidden; background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 30px; box-shadow: var(--shadow); backdrop-filter: blur(25px);-webkit-backdrop-filter: blur(25px);
+}
+
+.visual-panel {
+    position: relative; display: flex; overflow: hidden; padding: 36px;
+    background:  radial-gradient(  circle at 80% 15%,  rgba(232, 175, 192, 0.62), transparent 28%),  radial-gradient(  circle at 10% 85%,  rgba(205, 184, 238, 0.72),  transparent 32%),
+        linear-gradient(145deg,  #f0e8fa,  #e4d5f5 48%,  #f5e3e8);
+}
+/* Decorative glow */
+.visual-glow {
+    position: absolute; border-radius: 50%; filter: blur(20px); pointer-events: none; z-index: 0;
+}
+
+.glow-one {
+    width: 170px; height: 170px; top: 30%; right: -80px;background: rgba(255, 255, 255, 0.55);
+}
+
+.glow-two {
+    width: 130px; height: 130px; bottom: -40px; left: 25%; background: rgba(217, 130, 154, 0.22);
+}
+
+.brand-mark {
+    position: relative; z-index: 5; display: flex; align-items: center; gap: 12px; color: var(--plum);  font-size: 17px;font-weight: 700;letter-spacing: -0.3px;
+}
+
+.brand-icon {
+    width: 40px; height: 40px;  display: grid;    place-items: center; color: white;
+    background: linear-gradient(  135deg,  var(--purple),  var(--rose));  border-radius: 13px; box-shadow: 0 8px 20px rgba(108, 74, 182, 0.22);
+}
+
+.brand-icon svg {
+width: 20px;  height: 20px; stroke-width: 2;
+}
+.visual-content {
+    position: relative;   z-index: 4;   flex: 1;   display: flex;   flex-direction: column;
+}
+
+.visual-text {
+    position: relative; z-index: 5; max-width: 330px; margin-top: 60px; margin-bottom: 28px;
+}
+
+.eyebrow,
+.small-label {
+    display: block; color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 2px;
+}
+
+.visual-text h1 {
+    margin-top: 14px;font-size: clamp(30px, 3.3vw, 38px);line-height: 1.1;letter-spacing: -1.8px;font-weight: 600;
+}
+
+.visual-text h1 span {
+    display: block;font-family: "Playfair Display", serif;font-style: italic;font-weight: 500; color: var(--purple);
+}
+
+.visual-text p {
+    max-width: 300px;  margin-top: 18px; color: #625a68; font-size: 14px; line-height: 1.7;
+}
+
+
+.floating-wallet {
+    position: relative; z-index: 3; align-self: flex-end; margin-top: auto; margin-right: 6px; width: 180px;  height: 128px; padding: 18px;
+    border-radius: 22px;  background:  linear-gradient(135deg, rgba(108, 74, 182, 0.96), rgba(217, 130, 154, 0.92));
+    box-shadow:    0 22px 40px rgba(77, 49, 107, 0.25);
+    transform: rotate(-7deg);
+    animation: walletFloat 5s ease-in-out infinite;
+}
+
+.wallet-top {
+    display: flex;  align-items: center;   justify-content: space-between;   color: rgba(255, 255, 255, 0.78);
+    font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+}
+
+.wallet-top svg { width: 17px;
+}
+
+.wallet-shape {
+    display: flex;align-items: flex-end;justify-content: space-between;  height: 72px;
+}
+
+.wallet-chip {
+    width: 40px;   height: 30px;   display: grid;   place-items: center; border-radius: 9px;
+    background: rgba(255, 255, 255, 0.20); border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.wallet-chip svg {
+    width: 18px; color: white;
+}
+
+.wallet-lines {
+    display: flex;  flex-direction: column;  gap: 6px;
+}
+
+.wallet-lines span {
+    display: block; width: 60px; height: 4px; border-radius: 10px; background: rgba(255, 255, 255, 0.45);
+}
+
+.wallet-lines span:last-child {
+    width: 40px;
+    margin-left: auto;
+}
+.floating-orb {
+    position: absolute; z-index: 1; border-radius: 50%;background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);  animation: orbFloat 6s ease-in-out infinite;
+}
+
+.orb-one {
+    width: 64px;  height: 64px;  top: 4px;  right: 6px;
+}
+.orb-two {
+    width: 34px;  height: 34px ; bottom: 40px;left: 10px;animation-delay: 1s;
+}
+.form-panel {
+    position: relative;display: flex;align-items: center; padding: 40px 48px;background: rgba(255, 255, 255, 0.88);
+}
+.form-wrapper {
+    width: 100%; max-width: 320px; margin: auto;
+}
+.auth-form {
+    width: 100%;
+}
+
+
+.form-heading { margin: 0 0 26px;
+}
+
+.form-heading h2 {
+    margin-top: 10px; font-size: 32px; line-height: 1.15; letter-spacing: -1.3px;
+}
+
+.form-heading h2 span {
+    font-family: "Playfair Display", serif;    font-style: italic;    font-weight: 500;
+    color: var(--purple);
+}
+
+.form-heading p {
+    margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.6;
+}
+
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;margin-bottom: 8px;color: #514956;font-size: 13px;font-weight: 600;
+}
+
+.label-row {
+    display: flex; align-items: center; justify-content: space-between;
+}
+
+.forgot-btn {
+    border: none;   background: transparent;
+   color: var(--purple);   font-family: inherit;font-size: 12px;font-weight: 600;cursor: pointer;
+}
+
+.forgot-btn:hover {color: var(--purple-dark);
+}
+
+.input-box { position: relative; display: flex; align-items: center;
+}
+
+.input-box > svg {
+    position: absolute; left: 16px; width: 18px; height: 18px;    color: #9b91a2;   pointer-events: none;
+}
+
+.input-box input {
+    width: 100%;   height: 50px;   padding: 0 46px;   border: 1px solid var(--border);
+   border-radius: 15px;  outline: none;  color: var(--plum);  background: #fcfafc;  font-family: inherit;  font-size: 14px;
+    transition:    border-color 0.25s ease,  box-shadow 0.25s ease,  background 0.25s ease;
+}
+
+.input-box input::placeholder { color: #aaa2af;
+}
+.input-box input:focus {
+    background: white;  border-color: rgba(108, 74, 182, 0.45);  box-shadow: 0 0 0 4px rgba(108, 74, 182, 0.08);
+}
+
+.password-toggle {
+    position: absolute; right: 12px; display: grid;   place-items: center;  width: 30px;  height: 30px;  border: none;  background: transparent;
+    color: #958b9c; cursor: pointer;
+}
+
+.password-toggle:hover { color: var(--purple);
+}
+.password-toggle svg {  width: 17px;
+}
+
+.primary-btn {
+    width: 100%;height: 52px;margin-top: 6px;display: flex;align-items: center;justify-content: center;
+    gap: 10px;border: none; border-radius: 16px;  color: white;  background: linear-gradient(100deg,  var(--purple), #805fc4 55%,var(--rose));
+    box-shadow: 0 14px 25px rgba(108, 74, 182, 0.20);font-family: inherit;  font-size: 14px;font-weight: 700;cursor: pointer;transition: transform 0.25s ease,   box-shadow 0.25s ease;
+}
+.primary-btn svg {
+    width: 18px;  transition: transform 0.25s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);  box-shadow: 0 18px 30px rgba(108, 74, 182, 0.28);
+}
+
+.primary-btn:hover svg {  transform: translate(2px, -2px);
+}
+.primary-btn:active {  transform: translateY(0);
+}
+.form-switch {
+    display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 24px;
+  color: var(--muted);   font-size: 13px;
+}
+
+.form-switch button {
+    border: none; background: transparent; color: var(--purple); font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+
+.form-switch button:hover {
+    text-decoration: underline;
+}
+.signup-form {  display:none;
+}
+.mobile-brand {  display: none;
+}
+
+@keyframes walletFloat {
+    0%,
+    100% { transform: rotate(-7deg) translateY(0);   }   50% { transform: rotate(-5deg) translateY(-8px);
+    }
+}
+
+@keyframes orbFloat {
+
+    0%,
+    100% { transform: translateY(0);   }   50% {  transform: translateY(-12px);
+    }
+}
+
+@keyframes blobDrift {
+    0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(24px, -20px) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-wallet, .floating-orb, .bg-blob { animation: none; }
+}
+
+@media (max-width: 950px) {
+    .auth-page {padding: 22px;
+    }
+    .auth-card {grid-template-columns: 44% 56%;  min-height: 560px;
+    }
+    .visual-panel { padding: 28px;
+    }
+    .form-panel { padding: 36px 32px;
+    }
+    .visual-text {  margin-top: 44px;
+    }
+    .visual-text h1 { font-size: 30px; letter-spacing: -1.4px;
+    }
+    .floating-wallet {
+        width: 160px;  height: 116px; padding: 16px;
+    }
+    .wallet-shape { height: 62px;
+    }
+}
+
+
+@media (max-width: 720px) {
+
+    .auth-page {
+        min-height: 100vh;  padding: 20px;
+    }
+
+    .auth-card {
+        display: block; min-height: auto; border-radius: 26px;
+    }
+
+    .visual-panel { display: none;
+    }
+
+    .form-panel {
+        padding: 38px 26px; min-height: 560px;
+    }
+
+    .mobile-brand {
+        display: flex;  align-items: center;  gap: 10px; font-size: 16px;   font-weight: 700;
+    }
+
+    .mobile-brand .brand-icon {
+        width: 36px; height: 36px;    }
+
+    .form-heading { margin-top: 32px;
+    }
+
+    .form-heading h2 {  font-size: 30px;
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    .auth-page {   padding: 12px;
+    }
+
+    .auth-card { border-radius: 22px;
+    }
+
+    .form-panel {  padding: 32px 20px;
+    }
+
+    .form-heading h2 { font-size: 27px;
+    }
+
+    .form-heading p { font-size: 13px;
+    }
+
+    .input-box input {   height: 49px;
+    }
+
+    .primary-btn {height: 51px;
+    }
+}
+.auth-card.show-signup .login-form {
+    display: none;
+}
+
+.auth-card.show-signup .signup-form {
+    display: block;
+}
+.toast-container {
+    position: fixed;  top: 24px;  right: 24px;  z-index: 999;  display: flex;  flex-direction: column;  gap: 10px;
+}
+
+.toast {
+    display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 14px; background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px); box-shadow: 0 15px 35px rgba(130, 100, 160, 0.2); border: 1px solid rgba(255, 255, 255, 0.4); font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 500; color: var(--plum); min-width: 260px; animation: toastIn 0.3s ease;
+}
+.toast i {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.toast-success .toast-icon {
+    color: #3e7752;
+}
+
+.toast-error .toast-icon {
+    color: #d9829a;
+}
+
+.toast-hide {
+    animation: toastOut 0.3s ease forwards;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastOut {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(30px); }
+}

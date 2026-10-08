@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ExpenseFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <button type="button" class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon">
+                <i data-lucide="wallet"></i>
+            </div>
+            <span>ExpenseFlow</span>
+        </div>
+
+        <div class="sidebar-links">
+            <a href="dashboard.html" class="nav-link active">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="add-transactions.html" class="nav-link">
+                <i data-lucide="plus-circle"></i>
+                <span>Add Transaction</span>
+            </a>
+            <a href="transactions.html" class="nav-link">
+                <i data-lucide="receipt"></i>
+                <span>Transactions</span>
+            </a>
+            <a href="budgets.html" class="nav-link">
+                <i data-lucide="pie-chart"></i>
+                <span>Budgets</span>
+            </a>
+            <a href="analytics.html" class="nav-link">
+                <i data-lucide="bar-chart-3"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="settings.html" class="nav-link">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="greeting">
+                <span class="small-label">WELCOME BACK</span>
+                <h1 id="userName">Loading...</h1>
+            </div>
+            <button type="button" id="logoutBtn" class="logout-btn">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+        </header>
+        <section class="balance-hero">
+    <div class="balance-hero-top">
+        <span class="small-label" style="color: rgba(255,255,255,0.7);">TOTAL BALANCE</span>
+        <span class="balance-hero-date">
+            <i data-lucide="calendar"></i>
+            <span id="heroMonth">October 2026</span>
+        </span>
+    </div>
+
+    <h2 class="balance-hero-amount" id="heroBalance">₹0</h2>
+    <p class="balance-hero-sub" id="heroSub"></p>
+
+    <div class="balance-hero-split">
+        <div>
+            <span class="balance-hero-split-label">All income</span>
+            <div class="balance-hero-split-value income" id="heroIncome">₹0.00</div>
+        </div>
+        <div>
+            <span class="balance-hero-split-label">All expenses</span>
+            <div class="balance-hero-split-value expense" id="heroExpense">₹0.00</div>
+        </div>
+    </div>
+
+    <div class="balance-hero-actions">
+        <a href="add-transactions.html" class="balance-hero-btn primary">
+            <i data-lucide="plus"></i>
+            <span>Quick add transaction</span>
+        </a>
+        <a href="transactions.html" class="balance-hero-btn ghost">
+            <span>View ledger</span>
+        </a>
+    </div>
+</section>
+
+        <section class="transactions-section">
+            <div class="section-header">
+                <h2>Recent Transactions</h2>
+                <a href="transactions.html" class="view-all-link">View All</a>
+            </div>
+
+            <div class="transaction-list" id="transactionList">
+                <p class="loading-text">Loading transactions...</p>
+            </div>
+            </section>
+    </main>
+    <script src="js/toast.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

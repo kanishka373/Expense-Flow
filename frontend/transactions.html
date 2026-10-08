@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions | ExpenseFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <button type="button" class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon">
+                <i data-lucide="wallet"></i>
+            </div>
+            <span>ExpenseFlow</span>
+        </div>
+
+        <div class="sidebar-links">
+            <a href="dashboard.html" class="nav-link">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="add-transactions.html" class="nav-link">
+                <i data-lucide="plus-circle"></i>
+                <span>Add Transaction</span>
+            </a>
+            <a href="transactions.html" class="nav-link active">
+                <i data-lucide="receipt"></i>
+                <span>Transactions</span>
+            </a>
+            <a href="budgets.html" class="nav-link">
+                <i data-lucide="pie-chart"></i>
+                <span>Budgets</span>
+            </a>
+            <a href="analytics.html" class="nav-link">
+                <i data-lucide="bar-chart-3"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="settings.html" class="nav-link">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="greeting">
+                <span class="small-label">ALL RECORDS</span>
+                <h1>Transactions.</h1>
+            </div>
+        </header>
+
+        <section class="filters-row">
+            <div class="filter-box">
+                <i data-lucide="filter"></i>
+                <select id="filterType">
+                    <option value="all">All Types</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+            </div>
+            <div class="filter-box">
+    <i data-lucide="arrow-up-down"></i>
+    <select id="sortBy">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="highest">Highest Amount</option>
+        <option value="lowest">Lowest Amount</option>
+    </select>
+</div>
+
+            <div class="filter-box">
+                <i data-lucide="tag"></i>
+                <select id="filterCategory">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+
+            <div class="filter-box">
+                <i data-lucide="search"></i>
+                <input type="text" id="searchInput" placeholder="Search description...">
+            </div>
+        </section>
+        <section class="transactions-section">
+            <div class="table-card">
+                <div class="table-card-scroll"></div>
+                <table class="txn-table">
+                    <thead>
+                         <tr>
+                           <th>Date</th>
+                           <th>Description</th>
+                           <th>Category</th>
+                           <th>Method</th>
+                           <th>Type</th>
+                           <th class="align-right">Amount</th>
+                           <th>Action</th>
+                       </tr>
+                  </thead>
+                      <tbody id="transactionList">
+                        <tr><td colspan="7" class="loading-text">Loading transactions...</td></tr>
+                     </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/toast.js"></script>
+    <script src="js/transactions.js"></script>
+</body>
+</html>
