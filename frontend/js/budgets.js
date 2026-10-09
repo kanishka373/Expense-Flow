@@ -5,15 +5,15 @@ const CATEGORIES = [
     { name: "Bills", icon: "receipt" },
     { name: "Medicine", icon: "pill" },
     { name: "Entertainment", icon: "film" },
-    { name:"Fuel",icon:"fuel"},
-    {name:"Maintenance",icon:"wrench"},
-    { name:"Rent", icon:"home"},  
-    {name:"Education",icon:"graduation-cap"},
-    {name:"Health",icon:"heart-pulse"},
-    {name:"Groceries",icon:"shopping-cart"},
-    {name:"Savings",icon:"Piggy-bank"},
+    { name: "Fuel", icon: "fuel" },
+    { name: "Maintenance", icon: "wrench" },
+    { name: "Rent", icon: "home" },
+    { name: "Education", icon: "graduation-cap" },
+    { name: "Health", icon: "heart-pulse" },
+    { name: "Groceries", icon: "shopping-cart" },
+    { name: "Savings", icon: "Piggy-bank" },
     { name: "Other", icon: "tag" }
-    
+
 ];
 
 let currentDate = new Date();
@@ -56,7 +56,7 @@ async function loadEverything() {
 
 async function loadTransactionsForMonth() {
     try {
-        const response = await fetch("http://localhost:5000/api/transactions", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/transactions", {
             method: "GET",
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         });
@@ -75,7 +75,7 @@ async function loadTransactionsForMonth() {
 
 async function loadCategoryBudgets() {
     try {
-        const response = await fetch(`http://localhost:5000/api/budgets?month=${getMonthString()}`, {
+        const response = await fetch(`https://expense-flow-58wi.onrender.com/api/budgets?month=${getMonthString()}`, {
             method: "GET",
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         });
@@ -162,7 +162,7 @@ async function saveCategoryBudget(category) {
     }
 
     try {
-        const response = await fetch("http://localhost:5000/api/budgets", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/budgets", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -193,7 +193,7 @@ async function deleteCategoryBudget(category) {
 
     try {
         const response = await fetch(
-            `http://localhost:5000/api/budgets/${category}?month=${getMonthString()}`,
+            `https://expense-flow-58wi.onrender.com/api/budgets/${category}?month=${getMonthString()}`,
             {
                 method: "DELETE",
                 headers: { Authorization: "Bearer " + localStorage.getItem("token") }
@@ -251,7 +251,7 @@ function renderOverallBudget() {
 
     if (totalSpent > overallAmount) {
         const over = totalSpent - overallAmount;
-            banner.innerHTML = `
+        banner.innerHTML = `
     <div class="exceed-banner">
         <i data-lucide="alert-triangle"></i>
         <strong>Budget exceeded — over by ₹${over}</strong>
@@ -272,7 +272,7 @@ document.getElementById("saveOverallBtn").addEventListener("click", async () => 
     }
 
     try {
-        const response = await fetch("http://localhost:5000/api/budgets", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/budgets", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -304,7 +304,7 @@ document.getElementById("removeOverallBtn").addEventListener("click", async () =
 
     try {
         const response = await fetch(
-            `http://localhost:5000/api/budgets/OVERALL?month=${getMonthString()}`,
+            `https://expense-flow-58wi.onrender.com/api/budgets/OVERALL?month=${getMonthString()}`,
             {
                 method: "DELETE",
                 headers: { Authorization: "Bearer " + localStorage.getItem("token") }

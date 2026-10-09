@@ -19,7 +19,7 @@ function loadUserInfo() {
 
 async function loadSummary() {
     try {
-        const response = await fetch("http://localhost:5000/api/analytics/summary", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/analytics/summary", {
             method: "GET",
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
@@ -32,7 +32,7 @@ async function loadSummary() {
             console.error("Failed to load summary:", data.message);
             return;
         }
-         document.getElementById("heroBalance").textContent = (data.balance < 0 ? "-₹" + Math.abs(data.balance) : "₹" + data.balance);
+        document.getElementById("heroBalance").textContent = (data.balance < 0 ? "-₹" + Math.abs(data.balance) : "₹" + data.balance);
         document.getElementById("heroIncome").textContent = "₹" + data.totalIncome;
         document.getElementById("heroExpense").textContent = "₹" + data.totalExpense;
 
@@ -43,7 +43,7 @@ async function loadSummary() {
 
 async function loadTransactions() {
     try {
-        const response = await fetch("http://localhost:5000/api/transactions", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/transactions", {
             method: "GET",
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
@@ -66,9 +66,9 @@ async function loadTransactions() {
 
 const categoryIcons = {
     food: "utensils", travel: "plane", shopping: "shopping-bag", medicine: "pill", bills: "receipt", entertainment: "film", salary: "wallet",
-    fuel: "fuel",  rent: "home",  groceries: "shopping-cart",  education: "graduation-cap",  health: "heart-pulse",  subscription: "repeat",
-    gift: "gift",  beauty: "sparkles",  books: "book-open",  coffee: "coffee", phone: "smartphone", clothing: "shirt",
-    fitness: "dumbbell", taxes: "landmark", loan: "credit-card", savings: "piggy-bank", maintenance: "wrench",  other: "tag"
+    fuel: "fuel", rent: "home", groceries: "shopping-cart", education: "graduation-cap", health: "heart-pulse", subscription: "repeat",
+    gift: "gift", beauty: "sparkles", books: "book-open", coffee: "coffee", phone: "smartphone", clothing: "shirt",
+    fitness: "dumbbell", taxes: "landmark", loan: "credit-card", savings: "piggy-bank", maintenance: "wrench", other: "tag"
 };
 function renderTransactions(transactions) {
     const listContainer = document.getElementById("transactionList");
@@ -85,7 +85,7 @@ function renderTransactions(transactions) {
         const amountClass = txn.type === "expense" ? "expense" : "income";
         const sign = txn.type === "expense" ? "-" : "+";
         const key = txn.category.toLowerCase();
-const iconName = categoryIcons[key] || (txn.type === "expense" ? "arrow-down" : "arrow-up");
+        const iconName = categoryIcons[key] || (txn.type === "expense" ? "arrow-down" : "arrow-up");
         return `
             <div class="transaction-item">
                 <div class="transaction-left">

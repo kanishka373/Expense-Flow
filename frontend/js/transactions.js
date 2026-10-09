@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadTransactions() {
     try {
-        const response = await fetch("http://localhost:5000/api/transactions", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/transactions", {
             method: "GET",
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
@@ -100,16 +100,17 @@ function formatDate(dateString) {
 
 function getCategoryIcon(category) {
     const icons = {
-        Food: "utensils",Travel: "plane",Shopping: "shopping-bag",Medicine: "pill",Bills: "receipt",Entertainment: "film",Salary: "wallet",Fuel:"fuel",
-        Rent: "home",  Groceries: "shopping-cart",  Education: "graduation-cap",  Health: "heart-pulse",  Subscription: "repeat",  Gift: "gift",
-        Beauty: "sparkles",Books: "book-open",Coffee: "coffee",Phone: "smartphone",Clothing: "shirt",Fitness: "dumbbell",Taxes: "landmark",
-Loan: "credit-card",Savings: "piggy-bank",Maintenance: "wrench"
+        Food: "utensils", Travel: "plane", Shopping: "shopping-bag", Medicine: "pill", Bills: "receipt", Entertainment: "film", Salary: "wallet", Fuel: "fuel",
+        Rent: "home", Groceries: "shopping-cart", Education: "graduation-cap", Health: "heart-pulse", Subscription: "repeat", Gift: "gift",
+        Beauty: "sparkles", Books: "book-open", Coffee: "coffee", Phone: "smartphone", Clothing: "shirt", Fitness: "dumbbell", Taxes: "landmark",
+        Loan: "credit-card", Savings: "piggy-bank", Maintenance: "wrench"
     };
     return icons[category] || "tag";
 }
-function getCategoryColor(category){
-    const colors={Food: "#e0a458",  Travel: "#5b9bd5", Shopping: "#d9829a", Medicine: "#6fb88a",  Health: "#e07a7a",
-        Bills: "#a99bd6",  Fuel: "#c08552", Rent: "#8a6d9e", Groceries: "#7fb069", Education: "#5ba3b0",
+function getCategoryColor(category) {
+    const colors = {
+        Food: "#e0a458", Travel: "#5b9bd5", Shopping: "#d9829a", Medicine: "#6fb88a", Health: "#e07a7a",
+        Bills: "#a99bd6", Fuel: "#c08552", Rent: "#8a6d9e", Groceries: "#7fb069", Education: "#5ba3b0",
         Entertainment: "#c77dff", Subscription: "#f4a261", Gift: "#e85d75", Beauty: "#dda0dd", Books: "#70a9a1",
         Coffee: "#9c6644", Phone: "#577590", Clothing: "#f28482", Fitness: "#43aa8b", Taxes: "#6d6875", Loan: "#bc6c25",
         Savings: "#4caf7d", Maintenance: "#8d99ae", Salary: "#4caf7d"
@@ -129,7 +130,7 @@ function renderTransactions(transactions) {
         const amountClass = txn.type === "expense" ? "expense" : "income";
         const sign = txn.type === "expense" ? "-" : "+";
         const iconName = getCategoryIcon(txn.category);
-        const catColor = getCategoryColor(txn.category);  
+        const catColor = getCategoryColor(txn.category);
 
         const typeClass = txn.type === "expense" ? "type-expense" : "type-income";
         const typeIcon = txn.type === "expense" ? "trending-down" : "trending-up";
@@ -179,7 +180,7 @@ async function deleteTransaction(id) {
     if (!confirmed) return;
 
     try {
-        const response = await fetch(`http://localhost:5000/api/transactions/${id}`, {
+        const response = await fetch(`https://expense-flow-58wi.onrender.com/api/transactions/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")

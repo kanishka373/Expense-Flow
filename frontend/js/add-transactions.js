@@ -18,7 +18,7 @@ function setDefaultDate() {
 
 async function loadTransactionForEdit(id) {
     try {
-        const response = await fetch("http://localhost:5000/api/transactions", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/transactions", {
             method: "GET",
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
@@ -124,8 +124,8 @@ document.getElementById("transactionForm")
         }
 
         const url = editId
-            ? `http://localhost:5000/api/transactions/${editId}`
-            : "http://localhost:5000/api/transactions";
+            ? `https://expense-flow-58wi.onrender.com/api/transactions/${editId}`
+            : "https://expense-flow-58wi.onrender.com/api/transactions";
 
         const method = editId ? "PUT" : "POST";
 

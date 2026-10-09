@@ -34,7 +34,7 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
     }
 
     try {
-        const response = await fetch("http://localhost:5000/api/auth/name", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/auth/name", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -85,7 +85,7 @@ document.getElementById("updatePasswordBtn").addEventListener("click", async () 
     }
 
     try {
-        const response = await fetch("http://localhost:5000/api/auth/password", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/auth/password", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -113,7 +113,7 @@ document.getElementById("updatePasswordBtn").addEventListener("click", async () 
 });
 document.getElementById("exportCsvBtn").addEventListener("click", async () => {
     try {
-        const response = await fetch("http://localhost:5000/api/export/csv", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/export/csv", {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         });
 
@@ -139,12 +139,12 @@ document.getElementById("exportCsvBtn").addEventListener("click", async () => {
         showToast("Unable to export data.", "error");
     }
 });
- document.getElementById("clearDataBtn").addEventListener("click", async () => {
+document.getElementById("clearDataBtn").addEventListener("click", async () => {
     const confirmed = confirm("This will permanently delete all your transactions and budgets. This cannot be undone. Continue?");
     if (!confirmed) return;
 
     try {
-        const response = await fetch("http://localhost:5000/api/clear-data", {
+        const response = await fetch("https://expense-flow-58wi.onrender.com/api/clear-data", {
             method: "DELETE",
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         });
@@ -162,4 +162,4 @@ document.getElementById("exportCsvBtn").addEventListener("click", async () => {
         console.error("Clear data error:", error);
         showToast("Unable to clear data.", "error");
     }
- });
+});
