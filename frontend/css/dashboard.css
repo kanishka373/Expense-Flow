@@ -379,11 +379,11 @@ body::after {
 }
 
 .txn-table th {
-    text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted);
+    text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted);
     padding: 16px 20px; border-bottom: 2px solid rgba(169, 155, 214, 0.2); white-space: nowrap; background:rgba(148, 54, 98, 0.18);
 }
 .txn-table td {
-    padding: 14px 20px; font-size: 14px;
+    padding: 14px 20px; font-size: 14px;text-align: center;
     color: #4a3f52; border-bottom: 2px solid rgba(169, 155, 214, 0.1);white-space: nowrap;
 }
 .txn-table tbody tr:last-child td {
