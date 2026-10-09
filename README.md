@@ -189,7 +189,7 @@ Start the server:
 ```bash
 node server.js
 ```
-The backend runs on `http://localhost:5000`.
+The backend runs on `https://expense-flow-58wi.onrender.com`.
 
 ### 3. Database setup
 Create the `users`, `transactions`, and `budgets` tables in your PostgreSQL database.
@@ -197,7 +197,7 @@ Create the `users`, `transactions`, and `budgets` tables in your PostgreSQL data
 ### 4. Frontend setup
 Open `frontend/login.html` using a live server (for example, the VS Code Live Server extension). No build step is required.
 
-> **Note:** API calls in the frontend JS files point to `http://localhost:5000`. When deploying, replace this with your deployed backend URL.
+> **Note:** API calls in the frontend JS files point to `https://expense-flow-58wi.onrender.com`. When deploying, replace this with your deployed backend URL.
 
 ---
 
@@ -212,7 +212,7 @@ Open `frontend/login.html` using a live server (for example, the VS Code Live Se
 
 ## 🗺️ Roadmap
 
-- [ ] Change password and account settings
+
 - [ ] Monthly report view
 - [ ] Dark mode
 - [ ] Recurring transactions

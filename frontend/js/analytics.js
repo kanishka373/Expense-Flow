@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
 async function loadAnalytics() {
     try {
         const [summaryRes, breakdownRes] = await Promise.all([
-            fetch("http://localhost:5000/api/analytics/summary", {
+            fetch("https://expense-flow-58wi.onrender.com/api/analytics/summary", {
                 headers: { Authorization: "Bearer " + localStorage.getItem("token") }
             }),
-            fetch("http://localhost:5000/api/analytics/breakdown", {
+            fetch("https://expense-flow-58wi.onrender.com/api/analytics/breakdown", {
                 headers: { Authorization: "Bearer " + localStorage.getItem("token") }
             })
         ]);
@@ -36,13 +36,13 @@ async function loadAnalytics() {
         showToast("Unable to load analytics.", "error");
     }
 }
-function renderHighestCategory(breakdown){
-    const el=document.getElementById("highestCategory");
-    if(!breakdown==breakdown===0){
-        el.textContent="_";
+function renderHighestCategory(breakdown) {
+    const el = document.getElementById("highestCategory");
+    if (!breakdown == breakdown === 0) {
+        el.textContent = "_";
         return;
     }
-    el.textContent=breakdown[0].category;
+    el.textContent = breakdown[0].category;
 }
 function renderComparisonChart(summary) {
     const ctx = document.getElementById("comparisonChart");
@@ -122,7 +122,7 @@ function renderBreakdownList(breakdown) {
         const percent = ((parseFloat(item.total) / total) * 100).toFixed(1);
         const color = CHART_COLORS[index % CHART_COLORS.length];
 
-         return `
+        return `
             <div class="breakdown-row">
                 <div class="breakdown-top">
                     <div class="breakdown-left">

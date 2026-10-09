@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toggle.addEventListener("click", () => {
             const targetId = toggle.getAttribute("data-target");
             const input = document.getElementById(targetId);
-            
+
             const eyeOpen = toggle.querySelector(".eye-open");
             const eyeClosed = toggle.querySelector(".eye-closed");
 
@@ -43,7 +43,7 @@ document.getElementById("signupForm")
         event.preventDefault();
 
         const name = document.getElementById("signupName").value.trim();
-        const email =  document.getElementById("signupEmail").value.trim();
+        const email = document.getElementById("signupEmail").value.trim();
         const password = document.getElementById("signupPassword").value;
         if (name === "") {
             alert("Please enter your name");
@@ -72,7 +72,7 @@ document.getElementById("signupForm")
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/auth/signup",
+                "https://expense-flow-58wi.onrender.com/api/auth/signup",
                 {
                     method: "POST",
                     headers: {
@@ -104,7 +104,7 @@ document.getElementById("signupForm")
             alert("Unable to connect to the server.");
         }
     });
-  document.getElementById("loginForm")
+document.getElementById("loginForm")
     .addEventListener("submit", async event => {
         event.preventDefault();
 
@@ -123,7 +123,7 @@ document.getElementById("signupForm")
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/auth/login",
+                "https://expense-flow-58wi.onrender.com/api/auth/login",
                 {
                     method: "POST",
                     headers: {
