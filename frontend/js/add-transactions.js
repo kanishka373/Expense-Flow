@@ -163,3 +163,9 @@ document.getElementById("transactionForm")
             showToast("Unable to connect to the server.", "error");
         }
     });
+    const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
+
+menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+});

@@ -163,3 +163,9 @@ document.getElementById("clearDataBtn").addEventListener("click", async () => {
         showToast("Unable to clear data.", "error");
     }
 });
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
+
+menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+});

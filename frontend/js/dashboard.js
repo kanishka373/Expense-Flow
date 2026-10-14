@@ -110,3 +110,9 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.removeItem("user");
     window.location.href = "login.html";
 });
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
+
+menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+});
