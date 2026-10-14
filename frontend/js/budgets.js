@@ -327,3 +327,10 @@ document.getElementById("removeOverallBtn").addEventListener("click", async () =
         showToast("Unable to remove budget.", "error");
     }
 });
+
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
+
+menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+});
