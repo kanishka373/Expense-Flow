@@ -732,6 +732,7 @@ body::after {
 .breakdown-bar-fill {
     height: 100%; border-radius: 999px;  transition: width 0.6s ease;
 }
+
 .settings-card {
     background: rgba(255, 255, 255, 0.55);backdrop-filter: blur(22px);-webkit-backdrop-filter: blur(22px);border: 1px solid var(--border);
     border-radius: 20px; padding: 28px; box-shadow: var(--shadow); margin-bottom: 20px; max-width: 560px;
@@ -812,7 +813,124 @@ body::after {
 }
 .danger-btn i { width: 16px; height: 16px;
 }
+/* ===== MONTHLY PAGE ===== */
 
+.monthly-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(217, 130, 154, 0.35);
+    border-radius: 20px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+}
+
+.stat-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--plum);
+}
+
+.stat-value.income {
+    color: var(--green);
+}
+
+.stat-value.expense {
+    color: var(--rose);
+}
+
+.stat-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    min-height: 16px;
+}
+
+.stat-sub.up {
+    color: var(--rose);
+}
+
+.stat-sub.down {
+    color: var(--green);
+}
+
+/* top expenses list */
+
+.top-expense-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+}
+
+.top-expense-row:not(:last-child) {
+    border-bottom: 1px solid rgba(169, 155, 214, 0.15);
+}
+
+.top-expense-rank {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--rose));
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.top-expense-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.top-expense-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--plum);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.top-expense-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+.top-expense-amount {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--rose);
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .stat-card {
+        padding: 16px;
+    }
+    .stat-value {
+        font-size: 22px;
+    }
+}
 /* MOBILE (phone)  */
 @media (max-width: 600px) {
 

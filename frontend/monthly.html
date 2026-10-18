@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly | ExpenseFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&family=Fraunces:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <button type="button" class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon"><i data-lucide="wallet"></i></div>
+            <span>ExpenseFlow</span>
+        </div>
+
+        <div class="sidebar-links">
+            <a href="dashboard.html" class="nav-link">
+                <i data-lucide="layout-dashboard"></i><span>Dashboard</span>
+            </a>
+            <a href="add-transactions.html" class="nav-link">
+                <i data-lucide="plus-circle"></i><span>Add Transaction</span>
+            </a>
+            <a href="transactions.html" class="nav-link">
+                <i data-lucide="receipt"></i><span>Transactions</span>
+            </a>
+            <a href="budgets.html" class="nav-link">
+                <i data-lucide="pie-chart"></i><span>Budgets</span>
+            </a>
+            <a href="monthly.html" class="nav-link active">
+                <i data-lucide="calendar-days"></i><span>Monthly</span>
+            </a>
+            <a href="analytics.html" class="nav-link">
+                <i data-lucide="bar-chart-3"></i><span>Analytics</span>
+            </a>
+            <a href="settings.html" class="nav-link">
+                <i data-lucide="settings"></i><span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="greeting">
+                <span class="small-label">MONTHLY REPORT</span>
+                <h1>Monthly.</h1>
+            </div>
+        </header>
+
+        <div class="month-nav">
+            <button type="button" id="prevMonth" class="month-nav-btn">
+                <i data-lucide="chevron-left"></i>
+            </button>
+            <input type="month" id="monthPicker" class="month-picker-input">
+            <button type="button" id="nextMonth" class="month-nav-btn">
+                <i data-lucide="chevron-right"></i>
+            </button>
+        </div>
+
+        <section class="monthly-stats">
+            <div class="stat-card">
+                <span class="stat-label">Income</span>
+                <h2 class="stat-value income" id="statIncome">₹0</h2>
+                <p class="stat-sub" id="statIncomeSub"></p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Expense</span>
+                <h2 class="stat-value expense" id="statExpense">₹0</h2>
+                <p class="stat-sub" id="statExpenseSub"></p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Savings</span>
+                <h2 class="stat-value" id="statSavings">₹0</h2>
+                <p class="stat-sub" id="statSavingsSub"></p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Savings rate</span>
+                <h2 class="stat-value" id="statRate">0%</h2>
+                <p class="stat-sub">Share of income saved</p>
+            </div>
+        </section>
+
+        <section class="analytics-grid">
+            <div class="chart-card">
+                <h2>Daily spending</h2>
+                <div class="chart-wrap">
+                    <canvas id="dailyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h2>By category</h2>
+                <div class="breakdown-list" id="categoryList">
+                    <p class="loading-text">Loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="chart-card full-width">
+            <h2>Top expenses</h2>
+            <div id="topExpenses">
+                <p class="loading-text">Loading...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/toast.js"></script>
+    <script src="js/monthly.js"></script>
+</body>
+</html>
